@@ -7,10 +7,11 @@
     <groupId>com.sergiomartinrubio</groupId>
     <artifactId>java-servlet-filters</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <properties>
-        <maven.compiler.source>13</maven.compiler.source>
-        <maven.compiler.target>13</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -19,13 +20,9 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
+            <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.5.2</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -43,6 +40,7 @@
                 <configuration>
                     <server>mytomcat7</server>
                     <path>/</path>
+                    <port>8080</port>
                 </configuration>
             </plugin>
         </plugins>

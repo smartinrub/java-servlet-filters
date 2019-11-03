@@ -6,6 +6,6 @@ com/sergiomartinrubio/javaservletfilters/IpAddressConverterServlet$1.class
 com/sergiomartinrubio/javaservletfilters/DecimalConversionStrategy.class
 com/sergiomartinrubio/javaservletfilters/ConversionStrategy.class
 com/sergiomartinrubio/javaservletfilters/ParametersCheckerFilter.class
+com/sergiomartinrubio/javaservletfilters/ExceptionHandlerServlet.class
 com/sergiomartinrubio/javaservletfilters/HexConversionStrategy.class
-com/sergiomartinrubio/javaservletfilters/ExceptionHandler.class
 com/sergiomartinrubio/javaservletfilters/IpAddressTargetFormatException.class

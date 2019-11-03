@@ -8,22 +8,26 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(urlPatterns = "/ExceptionHandler", name = "ErrorHandler")
-public class ExceptionHandler extends HttpServlet {
+@WebServlet(urlPatterns = "/ExceptionHandler", name = "ErrorHandlerServlet")
+public class ExceptionHandlerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Throwable throwable = (Throwable) request.getAttribute("javax.servlet.error.exception");
+        Class exceptionType = (Class) request.getAttribute("javax.servlet.error.exception_type");
+        String exceptionMessage = (String) request.getAttribute("javax.servlet.error.message");
         Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
         String servletName = (String) request.getAttribute("javax.servlet.error.servlet_name");
+        String requestUri = (String) request.getAttribute("javax.servlet.error.request_uri");
 
         if (servletName == null) {
             servletName = "Unknown";
         }
-        String requestUri = (String) request.getAttribute("javax.servlet.error.request_uri");
-
         if (requestUri == null) {
             requestUri = "Unknown";
+        }
+        if (exceptionMessage == null) {
+            exceptionMessage = "Unknown";
         }
 
         response.setContentType("text/html");
@@ -44,9 +48,9 @@ public class ExceptionHandler extends HttpServlet {
         } else {
             out.println("<h2>Error information</h2>");
             out.println("Servlet Name : " + servletName + "</br></br>");
-            out.println("Exception Type : " + throwable.getClass( ).getName( ) + "</br></br>");
+            out.println("Exception Type : " + exceptionType.getName() + "</br></br>");
             out.println("The request URI: " + requestUri + "<br><br>");
-            out.println("The exception message: " + throwable.getMessage( ));
+            out.println("The exception message: " + exceptionMessage);
         }
         out.println("</body>");
         out.println("</html>");

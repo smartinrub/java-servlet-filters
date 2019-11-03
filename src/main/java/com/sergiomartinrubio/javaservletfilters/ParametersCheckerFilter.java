@@ -18,7 +18,7 @@ public class ParametersCheckerFilter implements Filter {
         String ip = request.getParameter("ip");
         String format = request.getParameter("format");
 
-        if (ip != null && format != null && ip.matches("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}")) {
+        if (ip != null && format != null && ip.matches("[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}")) {
             chain.doFilter(request, response);
         } else {
             response.getWriter().println("Missing or wrong input parameter!");

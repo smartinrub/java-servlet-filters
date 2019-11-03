@@ -9,18 +9,19 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/uppercase")
-public class EmptyParameterFilter implements Filter {
+@WebFilter(urlPatterns = "/convert")
+public class ParametersCheckerFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
-        String input = request.getParameter("input");
+        String ip = request.getParameter("ip");
+        String format = request.getParameter("format");
 
-        if (input != null && input.matches("[A-Za-z0-9]+")) {
+        if (ip != null && format != null && ip.matches("[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}")) {
             chain.doFilter(request, response);
         } else {
-            response.getWriter().println("Missing input parameter!");
+            response.getWriter().println("Missing or wrong input parameter!");
         }
 
     }

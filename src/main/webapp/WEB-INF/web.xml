@@ -4,8 +4,13 @@
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+<!--    <error-page>-->
+<!--        <exception-type>com.sergiomartinrubio.javaservletfilters.IpAddressTargetFormatException</exception-type>-->
+<!--        <location>/ExceptionHandler</location>-->
+<!--    </error-page>-->
+
     <error-page>
         <exception-type>com.sergiomartinrubio.javaservletfilters.IpAddressTargetFormatException</exception-type>
-        <location>/ExceptionHandler</location>
+        <location>/WEB-INF/jsp/400.jsp</location>
     </error-page>
 </web-app>

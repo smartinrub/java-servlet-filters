@@ -1,4 +1,4 @@
-package com.sergiomartinrubio.javaservletfilters;
+package com.sergiomartinrubio.javaservletfilters.strategy;
 
 import java.math.BigInteger;
 import java.net.InetAddress;

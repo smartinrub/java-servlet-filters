@@ -1,6 +1,12 @@
-package com.sergiomartinrubio.javaservletfilters;
+package com.sergiomartinrubio.javaservletfilters.servlet;
 
-import javax.servlet.annotation.WebInitParam;
+import com.sergiomartinrubio.javaservletfilters.strategy.IpAddressConversionContext;
+import com.sergiomartinrubio.javaservletfilters.exception.IpAddressTargetFormatException;
+import com.sergiomartinrubio.javaservletfilters.model.IpAddressFormat;
+import com.sergiomartinrubio.javaservletfilters.strategy.BinaryConversionStrategy;
+import com.sergiomartinrubio.javaservletfilters.strategy.DecimalConversionStrategy;
+import com.sergiomartinrubio.javaservletfilters.strategy.HexConversionStrategy;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

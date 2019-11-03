@@ -1,4 +1,4 @@
-package com.sergiomartinrubio.javaservletfilters;
+package com.sergiomartinrubio.javaservletfilters.filter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

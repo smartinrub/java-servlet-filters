@@ -5,12 +5,12 @@
          version="3.1">
 
 <!--    <error-page>-->
-<!--        <exception-type>com.sergiomartinrubio.javaservletfilters.IpAddressTargetFormatException</exception-type>-->
+<!--        <exception-type>com.sergiomartinrubio.javaservletfilters.exception.IpAddressTargetFormatException</exception-type>-->
 <!--        <location>/ExceptionHandler</location>-->
 <!--    </error-page>-->
 
     <error-page>
-        <exception-type>com.sergiomartinrubio.javaservletfilters.IpAddressTargetFormatException</exception-type>
+        <exception-type>com.sergiomartinrubio.javaservletfilters.exception.IpAddressTargetFormatException</exception-type>
         <location>/WEB-INF/jsp/400.jsp</location>
     </error-page>
 </web-app>

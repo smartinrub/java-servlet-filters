@@ -1,4 +1,4 @@
-package com.sergiomartinrubio.javaservletfilters;
+package com.sergiomartinrubio.javaservletfilters.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

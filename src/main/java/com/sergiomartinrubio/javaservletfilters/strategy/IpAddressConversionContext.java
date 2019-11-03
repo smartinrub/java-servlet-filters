@@ -1,4 +1,6 @@
-package com.sergiomartinrubio.javaservletfilters;
+package com.sergiomartinrubio.javaservletfilters.strategy;
+
+import com.sergiomartinrubio.javaservletfilters.strategy.ConversionStrategy;
 
 public class IpAddressConversionContext {
 

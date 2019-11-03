@@ -1,4 +1,4 @@
-package com.sergiomartinrubio.javaservletfilters;
+package com.sergiomartinrubio.javaservletfilters.strategy;
 
 public class DecimalConversionStrategy implements ConversionStrategy {
     @Override

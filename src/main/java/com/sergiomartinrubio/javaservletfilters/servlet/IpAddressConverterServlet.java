@@ -21,29 +21,31 @@ public class IpAddressConverterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String ip = request.getParameter("ip");
         String format = request.getParameter("format");
-        IpAddressConversionContext conversionContext = null;
         IpAddressFormat inputIpAddressFormat;
+        inputIpAddressFormat = convertFormatInputToIpAddressFormat(format);
+        IpAddressConversionContext conversionContext = createIpAddressConversionContext(inputIpAddressFormat);
+        PrintWriter out = response.getWriter();
+        out.println(conversionContext.executeStrategy(ip));
+    }
 
+    private IpAddressFormat convertFormatInputToIpAddressFormat(String format) {
         try {
-            inputIpAddressFormat = IpAddressFormat.valueOf(format.toUpperCase());
+            return IpAddressFormat.valueOf(format.toUpperCase());
         } catch (RuntimeException e) {
             throw new IpAddressTargetFormatException("Invalid format value: " + format);
         }
+    }
 
+    private IpAddressConversionContext createIpAddressConversionContext(IpAddressFormat inputIpAddressFormat) {
         switch (inputIpAddressFormat) {
             case HEX:
-                conversionContext = new IpAddressConversionContext(new HexConversionStrategy());
-                break;
+                return new IpAddressConversionContext(new HexConversionStrategy());
             case DECIMAL:
-                conversionContext = new IpAddressConversionContext(new DecimalConversionStrategy());
-                break;
-            case BINARY:
-                conversionContext = new IpAddressConversionContext(new BinaryConversionStrategy());
-                break;
-        }
+                return new IpAddressConversionContext(new DecimalConversionStrategy());
+            default:
+                return new IpAddressConversionContext(new BinaryConversionStrategy());
 
-        PrintWriter out = response.getWriter();
-        out.println(conversionContext.executeStrategy(ip));
+        }
     }
 
 }

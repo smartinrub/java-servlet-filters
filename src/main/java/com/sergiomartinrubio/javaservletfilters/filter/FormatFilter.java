@@ -1,5 +1,7 @@
 package com.sergiomartinrubio.javaservletfilters.filter;
 
+import com.sergiomartinrubio.javaservletfilters.exception.InputParameterException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -10,24 +12,27 @@ import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 @WebFilter(urlPatterns = "/convert")
-public class ParametersCheckerFilter implements Filter {
+public class FormatFilter implements Filter {
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-            throws IOException, ServletException {
-
-        String ip = request.getParameter("ip");
-        String format = request.getParameter("format");
-
-        if (ip != null && format != null && ip.matches("[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}")) {
-            chain.doFilter(request, response);
-        } else {
-            response.getWriter().println("Missing or wrong input parameter!");
-        }
+    public void init(FilterConfig filterConfig) throws ServletException {
 
     }
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+
+        String format = request.getParameter("format");
+
+        if (format != null) {
+            chain.doFilter(request, response);
+        } else {
+            throw new InputParameterException("Missing format parameter!");
+        }
+    }
+
+    @Override
+    public void destroy() {
 
     }
 }

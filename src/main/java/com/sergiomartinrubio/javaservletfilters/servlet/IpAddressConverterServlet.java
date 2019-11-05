@@ -1,7 +1,7 @@
 package com.sergiomartinrubio.javaservletfilters.servlet;
 
 import com.sergiomartinrubio.javaservletfilters.strategy.IpAddressConversionContext;
-import com.sergiomartinrubio.javaservletfilters.exception.IpAddressTargetFormatException;
+import com.sergiomartinrubio.javaservletfilters.exception.InputParameterException;
 import com.sergiomartinrubio.javaservletfilters.model.IpAddressFormat;
 import com.sergiomartinrubio.javaservletfilters.strategy.BinaryConversionStrategy;
 import com.sergiomartinrubio.javaservletfilters.strategy.DecimalConversionStrategy;
@@ -32,7 +32,7 @@ public class IpAddressConverterServlet extends HttpServlet {
         try {
             return IpAddressFormat.valueOf(format.toUpperCase());
         } catch (RuntimeException e) {
-            throw new IpAddressTargetFormatException("Invalid format value: " + format);
+            throw new InputParameterException("Invalid format value: \"" + format + "\"");
         }
     }
 

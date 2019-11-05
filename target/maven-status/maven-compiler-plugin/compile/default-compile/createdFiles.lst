@@ -4,6 +4,7 @@ com/sergiomartinrubio/javaservletfilters/servlet/IpAddressConverterServlet.class
 com/sergiomartinrubio/javaservletfilters/exception/IpAddressTargetFormatException.class
 com/sergiomartinrubio/javaservletfilters/strategy/ConversionStrategy.class
 com/sergiomartinrubio/javaservletfilters/strategy/BinaryConversionStrategy.class
+com/sergiomartinrubio/javaservletfilters/strategy/utility/DecimalIpConverter.class
 com/sergiomartinrubio/javaservletfilters/servlet/ExceptionHandlerServlet.class
 com/sergiomartinrubio/javaservletfilters/strategy/IpAddressConversionContext.class
 com/sergiomartinrubio/javaservletfilters/filter/ParametersCheckerFilter.class

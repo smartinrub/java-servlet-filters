@@ -1,17 +1,17 @@
 package com.sergiomartinrubio.javaservletfilters.strategy;
 
+import com.sergiomartinrubio.javaservletfilters.strategy.utility.DecimalIpConverter;
+
 public class DecimalConversionStrategy implements ConversionStrategy {
+
+    private DecimalIpConverter decimalIpConverter;
+
+    public DecimalConversionStrategy() {
+        this.decimalIpConverter = new DecimalIpConverter();
+    }
+
     @Override
     public String convert(String ipAddress) {
-        String[] ipAddressInArray = ipAddress.split("\\.");
-
-        long result = 0;
-        for (int i = 0; i < ipAddressInArray.length; i++) {
-
-            int power = 3 - i;
-            int ip = Integer.parseInt(ipAddressInArray[i]);
-            result += ip * Math.pow(256, power);
-        }
-        return Long.toString(result);
+        return Long.toString(decimalIpConverter.convert(ipAddress));
     }
 }

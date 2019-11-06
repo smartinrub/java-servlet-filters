@@ -1,11 +1,10 @@
 package com.sergiomartinrubio.javaservletfilters.servlet;
 
-import com.sergiomartinrubio.javaservletfilters.strategy.IpAddressConversionContext;
-import com.sergiomartinrubio.javaservletfilters.exception.InputParameterException;
 import com.sergiomartinrubio.javaservletfilters.model.IpAddressFormat;
 import com.sergiomartinrubio.javaservletfilters.strategy.BinaryConversionStrategy;
 import com.sergiomartinrubio.javaservletfilters.strategy.DecimalConversionStrategy;
 import com.sergiomartinrubio.javaservletfilters.strategy.HexConversionStrategy;
+import com.sergiomartinrubio.javaservletfilters.strategy.IpAddressConversionContext;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,20 +19,10 @@ public class IpAddressConverterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String ip = request.getParameter("ip");
-        String format = request.getParameter("format");
-        IpAddressFormat inputIpAddressFormat;
-        inputIpAddressFormat = convertFormatInputToIpAddressFormat(format);
-        IpAddressConversionContext conversionContext = createIpAddressConversionContext(inputIpAddressFormat);
+        IpAddressFormat format = (IpAddressFormat) request.getAttribute("format");
+        IpAddressConversionContext conversionContext = createIpAddressConversionContext(format);
         PrintWriter out = response.getWriter();
         out.println(conversionContext.executeStrategy(ip));
-    }
-
-    private IpAddressFormat convertFormatInputToIpAddressFormat(String format) {
-        try {
-            return IpAddressFormat.valueOf(format.toUpperCase());
-        } catch (RuntimeException e) {
-            throw new InputParameterException("Invalid format value: \"" + format + "\"");
-        }
     }
 
     private IpAddressConversionContext createIpAddressConversionContext(IpAddressFormat inputIpAddressFormat) {
@@ -44,7 +33,6 @@ public class IpAddressConverterServlet extends HttpServlet {
                 return new IpAddressConversionContext(new DecimalConversionStrategy());
             default:
                 return new IpAddressConversionContext(new BinaryConversionStrategy());
-
         }
     }
 

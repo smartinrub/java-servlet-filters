@@ -1,4 +1,5 @@
 com/sergiomartinrubio/javaservletfilters/servlet/IpAddressConverterServlet.class
+com/sergiomartinrubio/javaservletfilters/filter/FormatRequestWrapper.class
 com/sergiomartinrubio/javaservletfilters/strategy/BinaryConversionStrategy.class
 com/sergiomartinrubio/javaservletfilters/strategy/IpAddressConversionContext.class
 com/sergiomartinrubio/javaservletfilters/servlet/IpAddressConverterServlet$1.class
@@ -6,6 +7,8 @@ com/sergiomartinrubio/javaservletfilters/model/IpAddressFormat.class
 com/sergiomartinrubio/javaservletfilters/strategy/HexConversionStrategy.class
 com/sergiomartinrubio/javaservletfilters/strategy/DecimalConversionStrategy.class
 com/sergiomartinrubio/javaservletfilters/strategy/ConversionStrategy.class
+com/sergiomartinrubio/javaservletfilters/filter/IpFilter.class
 com/sergiomartinrubio/javaservletfilters/strategy/utility/DecimalIpConverter.class
 com/sergiomartinrubio/javaservletfilters/servlet/ExceptionHandlerServlet.class
+com/sergiomartinrubio/javaservletfilters/filter/FormatFilter.class
 com/sergiomartinrubio/javaservletfilters/exception/InputParameterException.class

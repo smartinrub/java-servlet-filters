@@ -1,17 +1,21 @@
 package com.sergiomartinrubio.javaservletfilters.filter;
 
 import com.sergiomartinrubio.javaservletfilters.exception.InputParameterException;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+@Slf4j
 @WebFilter(urlPatterns = "/convert")
 public class FormatFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+        log.info("The filter " + FormatFilter.class.getName() + " has been created!");
     }
 
     @Override
@@ -19,7 +23,6 @@ public class FormatFilter implements Filter {
             throws IOException, ServletException {
 
         request = new FormatRequestWrapper((HttpServletRequest) request);
-
         String format = request.getParameter("format");
 
         if (format != null) {
@@ -29,7 +32,18 @@ public class FormatFilter implements Filter {
         }
     }
 
+    // In java servlet, destroy() is not supposed to be called by the programmer.
+    // But, if it is invoked, it gets executed. The implicit question is, will
+    // the servlet get destroyed? No, it will not. destroy() method is not supposed
+    // to and will not destroy a java servlet.
+    //
+    //The meaning of destroy() in java servlet is, the content gets executed just
+    // before when the container decides to destroy the servlet. But if you invoke
+    // the destroy() method yourself, the content just gets executed and then the
+    // respective process continues. With respective to this question, the destroy()
+    // gets executed and then the servlet initialization gets completed.
     @Override
     public void destroy() {
+        log.info("Destroy method is invoked for the servlet " + FormatFilter.class.getName());
     }
 }

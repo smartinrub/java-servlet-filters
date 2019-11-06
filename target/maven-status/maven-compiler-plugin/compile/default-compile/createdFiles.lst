@@ -8,6 +8,7 @@ com/sergiomartinrubio/javaservletfilters/strategy/HexConversionStrategy.class
 com/sergiomartinrubio/javaservletfilters/strategy/DecimalConversionStrategy.class
 com/sergiomartinrubio/javaservletfilters/strategy/ConversionStrategy.class
 com/sergiomartinrubio/javaservletfilters/filter/IpFilter.class
+com/sergiomartinrubio/javaservletfilters/listener/NewAttribureListener.class
 com/sergiomartinrubio/javaservletfilters/strategy/utility/DecimalIpConverter.class
 com/sergiomartinrubio/javaservletfilters/servlet/ExceptionHandlerServlet.class
 com/sergiomartinrubio/javaservletfilters/filter/FormatFilter.class

@@ -1,16 +1,21 @@
 package com.sergiomartinrubio.javaservletfilters.filter;
 
 import com.sergiomartinrubio.javaservletfilters.exception.InputParameterException;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.servlet.*;
+import javax.servlet.DispatcherType;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @Slf4j
-@WebFilter(urlPatterns = "/convert")
+@WebFilter(urlPatterns = "/convert", dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD})
 public class FormatFilter implements Filter {
 
     @Override

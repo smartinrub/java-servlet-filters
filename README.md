@@ -7,7 +7,7 @@
 mvn tomcat7:run
 ```
 
-- The service can bet hit at `localhost:8080`
+- The service can be hit at `localhost:8080`
 
 e.g.
 

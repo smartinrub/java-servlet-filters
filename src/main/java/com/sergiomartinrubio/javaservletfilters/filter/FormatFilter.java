@@ -37,16 +37,6 @@ public class FormatFilter implements Filter {
         }
     }
 
-    // In java servlet, destroy() is not supposed to be called by the programmer.
-    // But, if it is invoked, it gets executed. The implicit question is, will
-    // the servlet get destroyed? No, it will not. destroy() method is not supposed
-    // to and will not destroy a java servlet.
-    //
-    //The meaning of destroy() in java servlet is, the content gets executed just
-    // before when the container decides to destroy the servlet. But if you invoke
-    // the destroy() method yourself, the content just gets executed and then the
-    // respective process continues. With respective to this question, the destroy()
-    // gets executed and then the servlet initialization gets completed.
     @Override
     public void destroy() {
         log.info("Destroy method is invoked for the servlet " + FormatFilter.class.getName());

@@ -3,6 +3,7 @@
 /Users/sergio/workspace/java-servlets/src/main/java/com/sergiomartinrubio/javaservletfilters/filter/FormatFilter.java
 /Users/sergio/workspace/java-servlets/src/main/java/com/sergiomartinrubio/javaservletfilters/strategy/BinaryConversionStrategy.java
 /Users/sergio/workspace/java-servlets/src/main/java/com/sergiomartinrubio/javaservletfilters/strategy/utility/DecimalIpConverter.java
+/Users/sergio/workspace/java-servlets/src/main/java/com/sergiomartinrubio/javaservletfilters/listener/NewAttributeListener.java
 /Users/sergio/workspace/java-servlets/src/main/java/com/sergiomartinrubio/javaservletfilters/filter/FormatRequestWrapper.java
 /Users/sergio/workspace/java-servlets/src/main/java/com/sergiomartinrubio/javaservletfilters/exception/InputParameterException.java
 /Users/sergio/workspace/java-servlets/src/main/java/com/sergiomartinrubio/javaservletfilters/filter/IpFilter.java
